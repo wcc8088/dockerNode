@@ -7,7 +7,12 @@ trigger:
 
 resources:
 - repo: self
-
+- task: Docker@2
+  inputs:
+    containerRegistry: 'wooccacr'
+    repository: 'dockernode'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
 variables:
 
   # Container registry service connection established during pipeline creation
